@@ -4,7 +4,9 @@ import App from './App.jsx'
 import './index.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+ 
     <App />
-  </React.StrictMode>,
+  
 )
+
+// react strict mode make sure karta h li sab theek se chal raha h ki nahi that's why vo 2 baar chalata h so isko hum delete kardenge
