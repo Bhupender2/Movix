@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const homeSlice = createSlice({
   name: 'home',
   initialState :{
-    url:{},
+    url:{ },
     genres:{}
     //gebres ka saara data jaise kis type ki movie h kya h jaise comedy , ya kuch yeh sab jab data movie k genres ka ismein aaegaa
 
