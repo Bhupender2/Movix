@@ -1,8 +1,18 @@
 import { useState,useEffect } from 'react'
 import { fetchDataFromApi } from './utils/api'
+import {  BrowserRouter, Routes, Route} from "react-router-dom";
 
 import { useSelector, useDispatch } from 'react-redux';
  import { getApiConfiguration } from './store/homeSlice';
+
+ import Header from './components/header/Header';
+ import Footer from './components/footer/Footer';
+ import Home from './pages/home/Home';
+ import Detail from './pages/details/Detail';
+ import SearchResult from './pages/searchResult/SearchResult';
+ import Explore from './pages/explore/Explore';
+ import pageNotFound from './pages/404/pageNotFound';
+
 function App() {
   const dispatch  = useDispatch();
 const {url}= useSelector((state)=>
@@ -22,13 +32,15 @@ state.home
   };
 
   return (
+       <BrowserRouter>
+
+       <Routes>
+       <Route path="/"  element={<Home/>}/>
        
-    <div>
-    App
-    {url?.total_pages}  
+       </Routes>
+       
+       </BrowserRouter>
     
-    
-    </div>
     
   )
 }
@@ -36,4 +48,4 @@ state.home
 
 export default App
 
-
+//browser router k andar hmari puri app wrap  rahegiii sare routes hmaare routes components k andar hi rahenge uske andar ek component rehta h Route naam se vo do props leta h path or dusra element jo hum jsx mein denge
