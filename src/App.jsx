@@ -33,11 +33,17 @@ state.home
 
   return (
        <BrowserRouter>
+       <Header/>
 
        <Routes>
        <Route path="/"  element={<Home/>}/>
+       <Route path="/:mediaType/:id" element={<Detail/>}/>
+       <Route path="/search/:query" element={<SearchResult/>}/>
+       <Route path="/explore/:mediaType" element={<Explore/>}/>
+       <Route path="*" element={<pageNotFound/>} />
        
        </Routes>
+       <Footer/>
        
        </BrowserRouter>
     
@@ -49,3 +55,4 @@ state.home
 export default App
 
 //browser router k andar hmari puri app wrap  rahegiii sare routes hmaare routes components k andar hi rahenge uske andar ek component rehta h Route naam se vo do props leta h path or dusra element jo hum jsx mein denge
+//route path="* " any path besides the above following it will show error or page not found
