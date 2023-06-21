@@ -33,7 +33,7 @@ state.home
 
   return (
        <BrowserRouter>
-       <Header/>
+      {/* <Header/>*/}
 
        <Routes>
        <Route path="/"  element={<Home/>}/>
@@ -43,7 +43,7 @@ state.home
        <Route path="*" element={<pageNotFound/>} />
        
        </Routes>
-       <Footer/>
+       {/*<Footer/>*/}
        
        </BrowserRouter>
     
