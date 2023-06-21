@@ -1,11 +1,14 @@
 import React, {useState} from "react";
 import "./style.scss";
 import {useNavigate} from "react-router-dom";
+import useFetch from "../../../hooks/useFetch";
 
 const HeroBanner = () => {
   const [background , setBackground]= useState("");
   const [query , setQuery ] =useState("");
   const navigate =useNavigate();
+
+  const { data, loading}= useFetch("/movie/upcoming")
 
 // ek method likhenge jo ki pass kardenge hum input k andar and enter hit karne pe api call jaani chahiye and query ki length empty nahi honi chahiye enter karne pe yeh search page pe jaana chahiye uske liye ek hook hota h useNavigate vo use karte h
   const searchQueryHandler = (event) =>{
