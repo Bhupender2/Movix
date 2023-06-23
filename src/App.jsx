@@ -18,17 +18,23 @@ function App() {
   const { url } = useSelector((state) => state.home);
   console.log(url);
 
-
-  // api call karwane k liye hmesha use effect hook use hota h or yeh boiler plate code jaise yeh const apiTesting wala code likhna hi hogaaa 
+  // api call karwane k liye hmesha use effect hook use hota h or yeh boiler plate code jaise yeh const apiTesting wala code likhna hi hogaaa
   // ab humein api call karwani h or ek costum hook create karwana h   costum hook ki help se hum code kaafi kam kar sakte b
   useEffect(() => {
     fetchApiConfig();
   }, []);
-  
+
   const fetchApiConfig = () => {
     fetchDataFromApi("/configuration").then((res) => {
       console.log(res);
-      dispatch(getApiConfiguration(res));
+
+      const url = {
+        backdrop: res.images.secure_base_url + "original",
+        poster: res.images.secure_base_url + "original",
+        profile: res.images.secure_base_url + "original",
+      };
+      dispatch(getApiConfiguration(url));
+      //url ko as a argument pass kardiya ab yeh store mein store hogyaa url ko action jo ki h (getApiConfiguration) usmein pass karna padega
       //after calling dispatch usmein action store karliya phir uss action mein res store karlia toh jo bhi api ka data humein network tab mein show ho raha tha vo humein redux store mein ho jaayega now the task is how to ascess it (?.) this is called optional chaining coz api se data aane mein time lagt h toh isse jab tak yeh undefined na btade isliye isse use karte h
     });
   };

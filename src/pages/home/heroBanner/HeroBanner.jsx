@@ -1,4 +1,5 @@
  import React, {useState , useEffect} from "react";
+ import { useSelector } from "react-redux";
  import "./style.scss";
  import {useNavigate} from "react-router-dom";
  import useFetch from "../../../hooks/useFetch";
@@ -9,12 +10,13 @@
   const [query , setQuery ] =useState("");
   const navigate =useNavigate();
   //use fetch mein upcoming data call karwaya so upcoming movies dikengi hum kuch bhi call karwaenge but humein 20 movies hi show hongi or usse jyda results dikhane h toh 
+  const {url}=useSelector((state)=>state.home)
 
   const { data, loading}= useFetch("/movie/upcoming")
   //starting mein toh data kuch nahi aaega toh jab load hoga tabhi aaaega data jab bhi api call successful hogi tab jaake data aaega or ussi time pe data aaega os ussi time pe useeffect ka use karenge hum
 
   useEffect(()=>{
-  const bg=data?.results?.[Math.floor(Math.random()*20)]?.backdrop_path
+  const bg= url.backdrop+ data?.results?.[Math.floor(Math.random()*20)]?.backdrop_path
 
   //hum cahahta h ki refresh karne mein hero banner mein ek new image aaye so use fectch ka use karne mein humein upcoming mein 20 images aaye ussmein se koi bhi random no wali image aajaaye so math.random ka use kiya but vo humein 4.4 ya 4.6 ese decimels bhi de sakta h toh usse round off karne k liye math.floor ka use kiya humne
   //? optional chaining ka use karte h taaki jab tak api se data nahi aaye aage ka code nahi chalega jab tak data undefined h tab tak aage ka code nahi chalegaa
