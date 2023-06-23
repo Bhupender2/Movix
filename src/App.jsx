@@ -22,10 +22,11 @@ function App() {
   // api call karwane k liye hmesha use effect hook use hota h or yeh boiler plate code jaise yeh const apiTesting wala code likhna hi hogaaa 
   // ab humein api call karwani h or ek costum hook create karwana h   costum hook ki help se hum code kaafi kam kar sakte b
   useEffect(() => {
-    apiTesting();
+    fetchApiConfig();
   }, []);
-  const apiTesting = () => {
-    fetchDataFromApi("/movie/popular").then((res) => {
+  
+  const fetchApiConfig = () => {
+    fetchDataFromApi("/configuration").then((res) => {
       console.log(res);
       dispatch(getApiConfiguration(res));
       //after calling dispatch usmein action store karliya phir uss action mein res store karlia toh jo bhi api ka data humein network tab mein show ho raha tha vo humein redux store mein ho jaayega now the task is how to ascess it (?.) this is called optional chaining coz api se data aane mein time lagt h toh isse jab tak yeh undefined na btade isliye isse use karte h
