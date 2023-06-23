@@ -7,14 +7,14 @@ const HeroBanner = () => {
   const [background , setBackground]= useState("");
   const [query , setQuery ] =useState("");
   const navigate =useNavigate();
+  //use fetch mein upcoming data call karwaya so upcoming movies dikengi hum kuch bhi call karwaenge but humein 20 movies hi show hongi or usse jyda results dikhane h toh 
 
   const { data, loading}= useFetch("/movie/upcoming")
 
 // ek method likhenge jo ki pass kardenge hum input k andar and enter hit karne pe api call jaani chahiye and query ki length empty nahi honi chahiye enter karne pe yeh search page pe jaana chahiye uske liye ek hook hota h useNavigate vo use karte h
   const searchQueryHandler = (event) =>{
   if(event.key==="Enter" && query.length> 0){
-    navigate(`/search/${query}`);
-
+    navigate(`/search/${query}`); 
   }
   };
   //mein back stick le raha hun coz mujhe beech mein yeh query bhi use karni h
