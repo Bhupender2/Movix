@@ -20,19 +20,17 @@ const Header = () => {
   const navigate = useNavigate(); // useNavigate hook ko use kark ek instance create kardiya h
   const location = useLocation();
 
-  const openSearch=()=>{
+  const openSearch = () => {
     setMobileMenu(false);
     setShowSearch(true);
-
-  }
-  const openMobileMenu=()=>{
+  };
+  const openMobileMenu = () => {
     setMobileMenu(true);
     setShowSearch(false);
-    
-  }
+  };
 
   return (
-    <header className="header">
+    <header className={`header ${mobileMenu? "mobileView":""} ${show}`}>
       <ContentWrapper>
         <div className="logo">
           <img src={logo} alt="" />
@@ -46,9 +44,20 @@ const Header = () => {
         </ul>
         <div className="mobileMenuItems">
           <HiOutlineSearch />
-          {mobileMenu ? <VscChromeClose /> : <SlMenu />}
+          {mobileMenu ? (
+            <VscChromeClose onclick={() => setMobileMenu(false)} />
+          ) : (
+            <SlMenu onClick={openMobileMenu} />
+          )}
         </div>
       </ContentWrapper>
+      <div className="searchBar">
+      <ContentWrapper>
+      
+      
+      
+      </ContentWrapper>
+      </div>
     </header>
   );
 };
