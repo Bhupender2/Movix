@@ -1,9 +1,68 @@
-.heroBanner{
-    height: 450px;
+@import "../../../mixins.scss";
+// whenever we are importing scss we need to use @ in the beginning.
+
+.heroBanner {
+  height: 450px;
+  width: 100%;
+  background-color: var(--black);
+  display: flex;
+  align-items: center;
+  position: relative;
+  @include md {
+    height: 700px;
+  }
+  .backdrop-img {
     width: 100%;
-    background-color: var(--black);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    overflow: hidden;
+    .lazy-load-image-background {
+      height: 100%;
+      width: 100%;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+  .opacity-layer{
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(
+        180deg,
+        rgba(4, 21, 45, 0) 0%,
+        #04152d 79.17%
+    );
+    position: absolute;
+    bottom: 0;
+    top: 0;
+
+  }
+.heroBannerContent{
     display: flex;
+    flex-direction: column;
+    align-content: start;
+    color: white;
     align-items: center;
     position: relative;
-    
+    max-width: 800px;
+    margin: 0 auto;
+    .title{
+        font-size: 50px ;
+        font-weight:700;
+        //mixins ko create karne time pe @mixins likhna padhta h but consume karte time pe @include likhna padhta h.
+        
+       
+    }
 }
+ 
+
+  
+}
+
+// we use scss for its nesting feature we don't need to seperatly add css we can use all the css in one component
