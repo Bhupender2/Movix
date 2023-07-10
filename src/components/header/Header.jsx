@@ -30,7 +30,7 @@ const Header = () => {
   };
 
   return (
-    <header className={`header ${mobileMenu? "mobileView":""} ${show}`}>
+    <header className={`header ${mobileMenu ? "mobileView" :" "} ${show}`}>
       <ContentWrapper>
         <div className="logo">
           <img src={logo} alt="" />
@@ -45,7 +45,7 @@ const Header = () => {
         <div className="mobileMenuItems">
           <HiOutlineSearch />
           {mobileMenu ? (
-            <VscChromeClose onclick={() => setMobileMenu(false)} />
+            <VscChromeClose onClick={() => setMobileMenu(false)} /> //my mistake is that 
           ) : (
             <SlMenu onClick={openMobileMenu} />
           )}
