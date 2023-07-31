@@ -48,9 +48,9 @@ const Header = () => {
   };
   const navigationHandler = (type) => {
     if (type === "movie") {
-      navigate("/explore/movie");
+      navigate("/explore/movie"); // agar argument type movie h toh use karenge navigate method
     } else {
-      navigate("/explore/tv");
+      navigate("/explore/tv");  // agar argument type  tv h tab bhi use karenge navigate method
     }
     setMobileMenu(false);
   };

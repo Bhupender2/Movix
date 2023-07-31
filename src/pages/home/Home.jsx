@@ -7,6 +7,7 @@ const Home = () => {
     <div className='homepage'>
     
     <HeroBanner/>
+    <div className="" style="height:100px"></div>
     </div>
   )
 }
