@@ -18,9 +18,25 @@ const Header = () => {
   const [query, setQuery] = useState(""); // search bar aaraha h uske text ko set karenge iss state ki help se
   const [showSearch, setShowSearch] = useState(""); // JO click karne pe search baar show ho raha h na yeh uske liye h
   const navigate = useNavigate(); // useNavigate hook ko use kark ek instance create kardiya h
-  const location = useLocation();
+  const location = useLocation();// hmari current location btata h yeh and hum ek component mein kitne bhi useeffect method likh sakte h
 
-  const controlNavbar = () => {};
+  useEffect(()=>{
+window.scrollTo(0,0)
+  },[location]) // dependency array k andar location daali h toh jab bhi location change hogi toh ek function call hoga jab hum dusre page mein jaayenge toh scroll toh jahan pe chora tha wahi pe rahega coz single page application h refresh toh hota h nahi toh hum kya karenge ki jab bhi path change hoga hum scroll 0,0 pe aajayenge or path change hoga vo humein useLocation hook se pta ;gega
+
+  const controlNavbar = () => {
+    console.log(window.scrollY);
+    if (window.scrollY > 200) {
+      if (window.scrollY > lastScrollY && !mobileMenu) {
+        setShow("hide");
+      } else {
+        setShow("show");
+      }
+    } else {
+      setShow("top");
+    }
+    setLastScrollY(window.scrollY) //window.scrollY hmaara scroll amount btati h 
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", controlNavbar);
@@ -50,7 +66,7 @@ const Header = () => {
     if (type === "movie") {
       navigate("/explore/movie"); // agar argument type movie h toh use karenge navigate method
     } else {
-      navigate("/explore/tv");  // agar argument type  tv h tab bhi use karenge navigate method
+      navigate("/explore/tv"); // agar argument type  tv h tab bhi use karenge navigate method
     }
     setMobileMenu(false);
   };
