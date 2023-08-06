@@ -16,7 +16,7 @@ const SwitchTabs = ({ data, onTabChange }) => {
   return (
     <div className="switchingTabs">
       <div className="tabItems">
-        {data.map((tab, index) => {
+        {data.map((tab, index) => (
           //map function use karenge coz data api se aana h
           <span
             key={index}
@@ -24,8 +24,8 @@ const SwitchTabs = ({ data, onTabChange }) => {
             onClick={() => activeTab(tab, index)}
           >
             {tab}
-          </span>;
-        })}
+          </span>
+  ))}
         <span className="movingBg" style={{ left }} />
       </div>
     </div>
