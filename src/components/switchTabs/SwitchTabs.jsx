@@ -9,7 +9,7 @@ const SwitchTabs = ({ data, onTabChange }) => {
     setLeft(index * 100);
     setTimeout(() => {
       setSelectedTab(index);
-    }, 300);
+    }, 300); // set time out timing isliye coz jab tum tab change karoge week se day ya day se week toh show hone mein time lgega na jaise week pe change kiya toh toh dusre tab m day likha show hone mein .3 seconds lgenge
     onTabChange(tab, index);
   };
 
